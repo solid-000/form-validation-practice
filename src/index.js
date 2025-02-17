@@ -35,6 +35,7 @@ email.addEventListener("input", () => {
   if (email.validity.valid) {
     emailError.textContent = "";
     emailError.classList.remove("active");
+    email.classList.remove("active");
   } else {
     showEmailError();
   }
@@ -46,13 +47,14 @@ function showEmailError() {
     emailError.textContent = "Please enter a valid email address.";
   }
   emailError.classList.add("active");
+  email.classList.add("active");
 }
 
 password.addEventListener("input", () => {
-  console.log(password.value);
   if (password.validity.valid) {
     passError.textContent = "";
     passError.classList.remove("active");
+    password.classList.remove("active");
   } else {
     showPassError();
   }
@@ -61,19 +63,19 @@ password.addEventListener("input", () => {
 function showPassError() {
   if (password.validity.valueMissing) {
     passError.textContent = "Required field";
-  } else if (password.validity.tooShort) {
-    passError.textContent = "Must be at least 8 characters long.";
   } else if (password.validity.patternMismatch) {
     passError.textContent =
-      "Must contain at least one number, one uppercase and one lowercase letter.";
+      "Must be at least 8 characters long, contain one number, one uppercase and one lowercase letter.";
   }
   passError.classList.add("active");
+  password.classList.add("active");
 }
 
 rePassword.addEventListener("input", () => {
   if (rePassword.validity.valid) {
     rePassError.textContent = "";
     rePassError.classList.remove("active");
+    rePassword.classList.remove("active");
   } else {
     showRePassError();
   }
@@ -85,4 +87,5 @@ function showRePassError() {
     rePassError.textContent = "Passwords do not match.";
   }
   rePassError.classList.add("active");
+  rePassword.classList.add("active");
 }
