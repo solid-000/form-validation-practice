@@ -9,31 +9,31 @@
     <form novalidate>
         <div class="container">
             <label for="email">Email:</label>
-            <input type="email" id="email">
+            <input type="email" id="email" required>
             <span class="error"></span>
         </div>
 
         <div class="container">
             <label for="password">Password:</label>
-            <input type="password" id="password"><br>
+            <input type="password" id="password" minlength="8" required>
             <span class="error"></span>
         </div>
         
         <div class="container">
             <label for="re-password">Confirm Password:</label>
-            <input type="password" id="re-password"><br>
+            <input type="password" id="re-password">
             <span class="error"></span>
         </div>
 
         <div class="container">
             <label for="country">Country:</label>
-            <input type="text" id="country"><br>
+            <input type="text" id="country">
             <span class="error"></span>
         </div>
 
         <div class="container">
             <label for="code">Postcode:</label>
-            <input type="text" id="code"><br>
+            <input type="text" id="code">
             <span class="error"></span>
         </div>
 
