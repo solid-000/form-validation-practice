@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Form</title>
 </head>
 <body>
-    
+    <form novalidate>
+        <div class="container">
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <span class="error"></span>
+        </div>
+
+        <div class="container">
+            <label for="password">Password:</label>
+            <input type="password" id="password"><br>
+            <span class="error"></span>
+        </div>
+        
+        <div class="container">
+            <label for="re-password">Confirm Password:</label>
+            <input type="password" id="re-password"><br>
+            <span class="error"></span>
+        </div>
+
+        <div class="container">
+            <label for="country">Country:</label>
+            <input type="text" id="country"><br>
+            <span class="error"></span>
+        </div>
+
+        <div class="container">
+            <label for="code">Postcode:</label>
+            <input type="text" id="code"><br>
+            <span class="error"></span>
+        </div>
+
+        <button type="button" class="submit">Submit</button>
+    </form>
 </body>
 </html>
