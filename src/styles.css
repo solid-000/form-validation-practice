@@ -31,7 +31,7 @@ button{
     display: block;
     word-wrap: break-word;
     box-sizing: border-box;
-    background-color: red;
+    background-color: #c13e1b;
     width: 100%;
     z-index: 2;
     font-size: 0.9rem;

@@ -15,13 +15,13 @@
 
         <div class="container">
             <label for="password">Password:</label>
-            <input type="password" id="password" minlength="8" required>
+            <input type="password" id="password" minlength="8" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
             <span class="error"></span>
         </div>
         
         <div class="container">
             <label for="re-password">Confirm Password:</label>
-            <input type="password" id="re-password">
+            <input type="password" id="re-password" required>
             <span class="error"></span>
         </div>
 
@@ -33,7 +33,7 @@
 
         <div class="container">
             <label for="code">Postcode:</label>
-            <input type="text" id="code">
+            <input type="text" id="code" required>
             <span class="error"></span>
         </div>
 
