@@ -11,12 +11,14 @@ const submit = document.querySelector(".submit");
 const emailError = document.querySelector("#email + span");
 const passError = document.querySelector("#password + span");
 const rePassError = document.querySelector("#re-password + span");
+const codeError = document.querySelector("#code + span");
 
 submit.addEventListener("click", () => {
   if (
     !email.validity.valid ||
     !password.validity.valid ||
-    !rePassword.validity.valid
+    !rePassword.validity.valid ||
+    !code.validity.valid
   ) {
     if (!email.validity.valid) {
       showEmailError();
@@ -27,7 +29,12 @@ submit.addEventListener("click", () => {
     if (!rePassword.validity.valid) {
       showRePassError();
     }
+    if (!code.validity.valid) {
+      showCodeError();
+    }
     return;
+  } else {
+    alert("success");
   }
 });
 
@@ -88,4 +95,51 @@ function showRePassError() {
   }
   rePassError.classList.add("active");
   rePassword.classList.add("active");
+}
+
+const constraints = {
+  ch: [
+    "^(CH-)?\\d{4}$",
+    "Swiss postal codes must have exactly 4 digits: e.g. CH-1950 or 1950",
+  ],
+  fr: [
+    "^(F-)?\\d{5}$",
+    "French postal codes must have exactly 5 digits: e.g. F-75012 or 75012",
+  ],
+  de: [
+    "^(D-)?\\d{5}$",
+    "German postal codes must have exactly 5 digits: e.g. D-12345 or 12345",
+  ],
+  nl: [
+    "^(NL-)?\\d{4}\\s*([A-RT-Z][A-Z]|S[BCE-RT-Z])$",
+    "Dutch postal codes must have exactly 4 digits, followed by 2 letters except SA, SD and SS",
+  ],
+};
+code.setAttribute("pattern", constraints[country.value][0]);
+
+country.addEventListener("change", () => {
+  let constraint = constraints[country.value][0];
+  code.setAttribute("pattern", constraint);
+  if (code.validity.patternMismatch) {
+    showCodeError();
+  }
+});
+
+code.addEventListener("input", () => {
+  if (code.validity.valid) {
+    codeError.textContent = "";
+    codeError.classList.remove("active");
+    code.classList.remove("active");
+  } else {
+    showCodeError();
+  }
+});
+function showCodeError() {
+  if (code.validity.valueMissing) {
+    codeError.textContent = "Required field.";
+  } else if (code.validity.patternMismatch) {
+    codeError.textContent = constraints[country.value][1];
+  }
+  code.classList.add("active");
+  codeError.classList.add("active");
 }
