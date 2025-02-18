@@ -114,6 +114,7 @@ const constraints = {
     "^(NL-)?\\d{4}\\s*([A-RT-Z][A-Z]|S[BCE-RT-Z])$",
     "Dutch postal codes must have exactly 4 digits, followed by 2 letters except SA, SD and SS",
   ],
+  np: ["^\\d{5}$", "Nepal postal codes must have exactly 5 digits: e.g. 44600"],
 };
 code.setAttribute("pattern", constraints[country.value][0]);
 
